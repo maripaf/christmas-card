@@ -5,24 +5,24 @@ function moveSnowToy() {
 }
 
 function changeImage() {
-    if (document.getElementById("snowToy").getAttribute("src") == "figures/globo2.png") {
-        document.getElementById("snowToy").src = "figures/globo1.png"
-    } else {
-        document.getElementById("snowToy").src = "figures/globo2.png"
+    if ((document.getElementById("snowToy").getAttribute("src") == "figures/globo_full_1.png") || (document.getElementById("snowToy").getAttribute("src") == "figures/globo_full_3.png")) {
+        document.getElementById("snowToy").src = "figures/globo_full_2.png"
+    } else if (document.getElementById("snowToy").getAttribute("src") == "figures/globo_full_2.png") {
+        document.getElementById("snowToy").src = "figures/globo_full_3.png"
     }
 }
 
 function stopSnowToy() {
-    document.getElementById("snowToy").src = "figures/globo2.png"
+    document.getElementById("snowToy").src = "figures/globo_full_1.png"
     clearInterval(interval);
 }
 
 var colour = "#FFFFFF";
-var sparkles = 50;
-var x = ox = 400;
-var y = oy = 300;
-var swide = 800;
-var shigh = 600;
+var sparkles = 100;
+var x = ox = 500;
+var y = oy = 500;
+var swide = 1000;
+var shigh = 1000;
 var sleft = sdown = 0;
 var tiny = new Array();
 var star = new Array();
@@ -78,7 +78,7 @@ function sparkle() {
         if (starv[c]) update_star(c);
         if (tinyv[c]) update_tiny(c);
     }
-    setTimeout("sparkle()", 40);
+    setTimeout("sparkle()", 50);
 }
 
 function update_star(i) {
@@ -95,7 +95,7 @@ function update_star(i) {
             return;
         }
     } else {
-        tinyv[i] = 50;
+        tinyv[i] = 10;
         tiny[i].style.top = (tinyy[i] = stary[i]) + "px";
         tiny[i].style.left = (tinyx[i] = starx[i]) + "px";
         tiny[i].style.width = "2px";
